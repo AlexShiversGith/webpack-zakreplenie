@@ -1,10 +1,15 @@
 {
-  "name": "webpack-zakreplenie",
+  "name": "my-webpack-project",
   "version": "1.0.0",
-  "description": "zakreplenie znaniy po webpack",
+  "description": "My webpack project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode=production --node-env=production",
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production --node-env=production",
+    "watch": "webpack --watch",
+    "serve": "webpack serve"
   },
   "repository": {
     "type": "git",
@@ -21,5 +26,17 @@
   "bugs": {
     "url": "https://github.com/AlexShiversGith/webpack-zakreplenie/issues"
   },
-  "homepage": "https://github.com/AlexShiversGith/webpack-zakreplenie"
+  "homepage": "https://github.com/AlexShiversGith/webpack-zakreplenie",
+  "devDependencies": {
+    "@webpack-cli/generators": "^3.0.7",
+    "css-loader": "^6.10.0",
+    "html-webpack-plugin": "^5.6.0",
+    "mini-css-extract-plugin": "^2.8.1",
+    "sass": "^1.72.0",
+    "sass-loader": "^14.1.1",
+    "style-loader": "^3.3.4",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4"
+  }
 }
