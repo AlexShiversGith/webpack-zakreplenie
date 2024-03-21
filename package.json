@@ -1,0 +1,25 @@
+{
+  "name": "webpack-zakreplenie",
+  "version": "1.0.0",
+  "description": "zakreplenie znaniy po webpack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexShiversGith/webpack-zakreplenie.git"
+  },
+  "keywords": [
+    "webpack",
+    "js",
+    "JavaSrcipt",
+    "frontend"
+  ],
+  "author": "Alex Shivers",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexShiversGith/webpack-zakreplenie/issues"
+  },
+  "homepage": "https://github.com/AlexShiversGith/webpack-zakreplenie"
+}
