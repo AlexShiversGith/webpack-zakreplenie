@@ -30,3 +30,7 @@ Hello world!
     };
 7. npm i -D babel @babel/core @babel/preset-env устанавливаем Babel
 8. Собираем проект npm run build:dev. Получаем собранный bundle в dist
+9. Добавляем скрипт в package.json для работы eslint'a:
+    "scripts": {
+        "lint-fix": "npx eslint --ext js,jsx,ts,tsx ./src --fix"
+    }
