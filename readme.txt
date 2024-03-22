@@ -9,4 +9,24 @@ npm init -y (с установками по умолчанию). Получае�
 указываем, что собираемся использовать. Ждем завершения установки
 5. Запускаем dev сервер npm run serve и наблюдаем заготовленный
 Hello world!
-6. 
+6. npm i prettier -D устанавливаем prettier с dev зависимостью для 
+авто форматирования кода.
+Пример .prettier.js:
+    module.exports = {
+        trailingComma: 'all',
+        tabWidth: 2,
+        semi: true,
+        singleQuote: true,
+        printWidth: 120,
+        arrowParens: 'always',
+        endOfLine: 'auto',
+        bracketSpacing: false,
+        embeddedLanguageFormatting: 'auto',
+        htmlWhitespaceSensitivity: 'css',
+        insertPragma: false,
+        quoteProps: 'as-needed',
+        requirePragma: false,
+        useTabs: false,
+    };
+7. npm i -D babel @babel/core @babel/preset-env устанавливаем Babel
+8. Собираем проект npm run build:dev. Получаем собранный bundle в dist
