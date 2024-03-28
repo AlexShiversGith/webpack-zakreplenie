@@ -1,6 +1,7 @@
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
 
 const path = require('path');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -23,14 +24,14 @@ const config = {
         open: true,
         host: 'localhost',
     },
-    plugins: [].concat(filenames.map(file => {
+    plugins: [].concat(filenames.map(file => 
         new HtmlWebpackPlugin({
             inject: 'head',
             template: `${file}.html`,
             filename: `${file}.html`,
             chunks: [file]
         })
-    })).filter(Boolean),
+    )).filter(Boolean),
     module: {
         rules: [
             {
