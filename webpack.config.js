@@ -9,10 +9,13 @@ const isProduction = process.env.NODE_ENV == 'production';
 
 const stylesHandler = isProduction ? MiniCssExtractPlugin.loader : 'style-loader';
 
-
+const filenames = ['index', 'play']
 
 const config = {
-    entry: './src/index.js',
+    entry: filenames.reduce((acc, item) => {
+        acc[item] = `./src/${item}.js`
+        return acc
+    }, {}),
     output: {
         path: path.resolve(__dirname, 'dist'),
     },
@@ -20,14 +23,14 @@ const config = {
         open: true,
         host: 'localhost',
     },
-    plugins: [
+    plugins: [].concat(filenames.map(file => {
         new HtmlWebpackPlugin({
-            template: 'index.html',
-        }),
-
-        // Add your plugins here
-        // Learn more about plugins from https://webpack.js.org/configuration/plugins/
-    ],
+            inject: 'head',
+            template: `${file}.html`,
+            filename: `${file}.html`,
+            chunks: [file]
+        })
+    })).filter(Boolean),
     module: {
         rules: [
             {
@@ -39,6 +42,10 @@ const config = {
                     presets: ['@babel/preset-env']
                   }
                 }
+            },
+            {
+                test: /\.html$/i,
+                loader: "html-loader",
             },
             {
                 test: /\.css$/i,
