@@ -34,3 +34,25 @@ Hello world!
     "scripts": {
         "lint-fix": "npx eslint --ext js,jsx,ts,tsx ./src --fix"
     }
+10. Создаем 2 entry points: 
+    webpack.config.js:
+        const filenames = ['index', 'play'] // создаем массив с названиями файлов.
+Предварительно нужно создать темплейты html и в src .js файлы с этими именами
+11. const config = {
+        entry: filenames.reduce((acc, item) => {
+            acc[item] = `./src/${item}.js`
+            return acc
+        }, {}),
+    } // создаем объект внутри entry с именами файлов выше
+12. Добавляем чанки для создания разных html файлов:
+    const config = {
+        plugins: [].concat(filenames.map(file => 
+        new HtmlWebpackPlugin({
+            inject: 'head',
+            template: `${file}.html`,
+            filename: `${file}.html`,
+            chunks: [file]
+        })
+    )).filter(Boolean),
+    }
+13. Делаем сборку и получаем 2 html и 2 js файла в dist
